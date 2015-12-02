@@ -1,10 +1,10 @@
 (require 'cl)
+
 (load-theme 'deeper-blue)
 
 (when (eq system-type 'darwin)
   (setq mac-command-modifier 'meta)
   (setq mac-option-modifier 'super))
-
 
 (server-start)
 (show-paren-mode)
@@ -180,60 +180,5 @@
 	    ;; add some Distel bindings to the Erlang shell
 	    (dolist (spec distel-shell-keys)
 	      (define-key erlang-shell-mode-map (car spec) (cadr spec)))))
-
-
-;;(require 'bbdb-autoloads)
-;; (require 'bbdb)
-;; (load "bbdb-com" t)
-;; (bbdb-initialize 'gnus 'message 'reportmail 'w3)
-;; ;;(bbdb-insinuate-reportmail)
-;; (bbdb-insinuate-message)
-;; ;; (bbdb-insinuate-sc)
-;; ;;(bbdb-insinuate-w3)
-;; (setq bbdb-north-american-phone-numbers nil)
-;; (add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
-;; (setq bbdb-auto-notes-alist
-;;       (quote (("To"
-;;                ("w3o" . "w3o")
-;;                ("plug" . "plug")
-;;                ("linux" . "linux")
-;;                ("emacs-commit" . "emacs commit")
-;;                ("emacs" . "emacs")
-;;                ("pinoyjug" . "pinoyjug")
-;;                ("digitalfilipino" . "digitalfilipino")
-;;                ("sacha" . "personal mail"))
-;;               ("From"
-;;                ("admu" company "Ateneo de Manila University")
-;;                ("Organization" (".*" company 0 nil))
-;;                ))))
-;; (setq bbdb-auto-notes-ignore (quote (("Organization" . "^Gatewayed from\\\\|^Source only"))))
-;; (setq bbdb-auto-notes-ignore-all nil)
-;; (setq bbdb-check-zip-codes-p nil)
-;; (setq bbdb-default-area-code 632)
-;; ;;(setq bbdb-default-country "Philippines")
-;; (setq bbdb-ignore-some-messages-alist (quote (("From" . "hotmail") ("To" . "handhelds") ("From" . "yahoo.com"))))
-;; (setq bbdb-notice-hook (quote (bbdb-auto-notes-hook)))
-;; (setq bbdb/mail-auto-create-p t)
-;; (setq bbdb/news-auto-create-p (quote bbdb-ignore-some-messages-hook))
-;; BBDB: Address list
-;; (when (file-exists-p "/usr/share/emacs/site-lisp/bbdb")
-;;   (add-to-list 'load-path "/usr/share/emacs/site-lisp/bbdb")
-  ;; (require 'bbdb)
-  ;; (bbdb-initialize 'message 'gnus 'sendmail)
-  ;; (setq bbdb-file "~/bbdb.db")
-  ;; (add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
-  ;; ;; (setq bbdb/mail-auto-create-p t
-  ;; ;;       bbdb/news-auto-create-p t)
-  ;; (defvar bbdb-time-internal-format "%Y-%m-%d"
-  ;;   "The internal date format.")
-  ;; ;;;###autoload
-  ;; (defun bbdb-timestamp-hook (record)
-  ;;   "For use as a `bbdb-change-hook'; maintains a notes-field called `timestamp'
-  ;;   for the given record which contains the time when it was last modified.  If
-  ;;   there is such a field there already, it is changed, otherwise it is added."
-  ;;   (bbdb-record-putprop record 'timestamp (format-time-string
-  ;;                                           bbdb-time-internal-format
-  ;;                                           (current-time))))
-
 
 
