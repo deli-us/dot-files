@@ -1,0 +1,17 @@
+% -*- erlang -*-
+ {ok, Cwd} = file:get_cwd(),
+ Apps = [
+         "git/distel/ebin"
+         ,"git/recon/ebin"
+        ],
+
+CondAdd = fun(Path) ->
+                  AbsPath = Cwd ++ "/" ++ Path,
+                  case file:read_file_info(AbsPath) of
+                      {ok, _} ->
+                          code:add_pathsz([AbsPath]);
+                      _ ->
+                          io:format("Missing ~p~n", [AbsPath])
+                  end
+          end,
+lists:foreach(CondAdd,  Apps).
