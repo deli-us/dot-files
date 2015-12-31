@@ -1,10 +1,10 @@
 (require 'cl)
-
 (load-theme 'deeper-blue)
 
 (when (eq system-type 'darwin)
   (setq mac-command-modifier 'meta)
   (setq mac-option-modifier 'super))
+
 
 (server-start)
 (show-paren-mode)
@@ -115,7 +115,7 @@
 	  #'(lambda(mode)
 	      (concat "*compilation of " (buffer-name (current-buffer)) "*")))
 	 (compile-dir (file-name-directory buffer-file-name))
-	 (cmd (concat "TEST_DIR=/Users/mattias/work2/trunk/system/test PATH=/usr/local/bin:$PATH make -C " compile-dir make-target)))
+	 (cmd (concat "PATH=/usr/local/bin:$PATH make -C " compile-dir make-target)))
     (compile cmd)))
 
 (defun cmd-compile ()
