@@ -1,12 +1,12 @@
 % -*- erlang -*-
- {ok, Cwd} = file:get_cwd(),
+ Home = os:getenv("HOME"),
  Apps = [
          "git/distel/ebin"
          ,"git/recon/ebin"
         ],
 
 CondAdd = fun(Path) ->
-                  AbsPath = Cwd ++ "/" ++ Path,
+                  AbsPath = Home ++ "/" ++ Path,
                   case file:read_file_info(AbsPath) of
                       {ok, _} ->
                           code:add_pathsz([AbsPath]);
