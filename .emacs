@@ -39,8 +39,22 @@
 (tailf-setup-load-paths
  '("devel_support/lib/emacs" "system/test/lib/lux/emacs/"))
 
+;; lux
 (pushnew '("\\.lux\\'" . lux-mode)  auto-mode-alist)
-(autoload 'lqux-mode "lux-mode" "" t)
+(autoload 'lux-mode "lux-mode" "" t)
+
+(defun my-lux-mode-hook ()
+  "Configuration for lux Mode. Add this to `lux-mode-hook'."
+  (if window-system
+      (progn
+        (local-set-key "\C-c\C-c" 'comment-region)
+        (whitespace-mode)
+        (setq indent-tabs-mode nil)
+        ;; (setq c-basic-offset 2)
+        (setq font-lock-maximum-decoration t)
+        (font-lock-mode t))))
+
+(add-hook 'lux-mode-hook 'my-lux-mode-hook)
 
 (load-library "tail-f")
 ;;   Common YANG layout:
