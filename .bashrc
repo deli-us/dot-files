@@ -8,10 +8,10 @@ fi
 
 if [ -f "$HOME/git/bash-git-prompt/gitprompt.sh" ]; then
     source $HOME/git/bash-git-prompt/gitprompt.sh
+    PS1="\[$GREEN\]\t\[$RED\]-\[$BLUE\]\u\[$YELLOW\]\[$YELLOW\]\w\[\033[m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\$ "
 fi
 
 
-PS1="\[$GREEN\]\t\[$RED\]-\[$BLUE\]\u\[$YELLOW\]\[$YELLOW\]\w\[\033[m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\$ "
 
 if [ $OS == "darwin" ]; then
     export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
@@ -29,3 +29,11 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 alias d='dirs -v'
 export WITH_OTP_DEBUG_TOOLS=true
+
+
+export GIT_MERGE_AUTOEDIT=no
+export PATH=${PATH}:~/git/git-bootstrap/commands/
+if [ -f ~/.git-completion.bash ]; then
+    #curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+  . ~/.git-completion.bash
+fi
