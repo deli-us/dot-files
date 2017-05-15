@@ -28,3 +28,4 @@ export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 alias d='dirs -v'
+export WITH_OTP_DEBUG_TOOLS=true

@@ -5,9 +5,9 @@
   (setq mac-command-modifier 'meta)
   (setq mac-option-modifier 'super))
 
-
 (server-start)
 (show-paren-mode)
+(load-theme 'tango-dark)
 
 ;; Turn on irfc.
 (pushnew '("\\rfc[0-9]+.txt\\'" . irfc-mode)  auto-mode-alist)
